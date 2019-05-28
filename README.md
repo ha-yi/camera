@@ -1,25 +1,28 @@
-Camera Samples Repository
-=====================
+# NeoCam
 
-This repository contains a set of individual Android Studio projects to help you get
-started with the Camera APIs in Android.
+NeoCam aims to demonstrate how to use CameraX APIs written in Kotlin.
 
-License
--------
+## Build
 
-Copyright 2019 Google, Inc.
+To build the app directly from the command line, run:
+```sh
+./gradlew assembleDebug
+```
 
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements.  See the NOTICE file distributed with this work for
-additional information regarding copyright ownership.  The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License.  You may obtain a copy of
-the License at
+## Test
 
-  http://www.apache.org/licenses/LICENSE-2.0
+Unit testing and instrumented device testing share the same code. To test the app using Roboelectric, no device required, run:
+```sh
+./gradlew test
+```
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
-License for the specific language governing permissions and limitations under
-the License.
+To run the same tests in an Android device connected via ADB, run:
+```sh
+./gradlew connectedAndroidTest
+```
+
+Alternatively, test running configurations can be added to Android Studio for convenience (and a nice UI). To do that:
+1. Go to: `Run` > `Edit Configurations` > `Add New Configuration`.
+1. For Roboelectric select `Android JUnit`, for connected device select `Android Instrumented Tests`.
+1. Select `app` module and `com.android.example.neocam.MainInstrumentedTest` class.
+1. Optional: Give the run configuration a name, like `test roboelectric` or `test device`
